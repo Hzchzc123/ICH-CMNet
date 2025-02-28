@@ -1,1 +1,1 @@
-# ICH-FSNet
+# ICH-CMNet
