@@ -9,6 +9,7 @@ from dataloader.dataloader import DataLoader, MultipleDatasets
 from Model.net import Net
 import csv
 from torch.optim.lr_scheduler import ReduceLROnPlateau
+from Model.Loss_function import SegmentationLoss
 
 # Dice损失
 def dice_loss(pred, target, smooth=1e-5):
@@ -133,7 +134,7 @@ if torch.cuda.device_count() > 1:
 
 optimizer = optim.AdamW(model.parameters(), lr=1e-4)
 
-criterion = dice_loss
+criterion = SegmentationLoss()
 
 dataset = MultipleDatasets(root_dir=r"./dataloader/dataloaders_test")
 dataloader = DataLoader(dataset, batch_size=24, shuffle=True, num_workers=4)
