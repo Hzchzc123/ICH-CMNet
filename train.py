@@ -139,7 +139,7 @@ criterion = SegmentationLoss()
 dataset = MultipleDatasets(root_dir=r"./dataloader/dataloaders_test")
 dataloader = DataLoader(dataset, batch_size=24, shuffle=True, num_workers=4)
 
-num_epochs = 1000
+num_epochs = 2000
 for epoch in range(1, num_epochs + 1):
     train_loss, train_dice, train_jaccard, train_hd95, train_precision, train_recall = train(
         model, dataloader, criterion, optimizer, device, epoch
